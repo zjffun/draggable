@@ -83,6 +83,10 @@ export default class SwapAnimation extends AbstractPlugin {
   [onSortableSorted]({oldIndex, newIndex, dragEvent}) {
     const {source, over} = dragEvent;
 
+    if (!source || !over) {
+      return;
+    }
+
     cancelAnimationFrame(this.lastAnimationFrame);
 
     // Can be done in a separate frame
