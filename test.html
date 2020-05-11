@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    li {
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <!-- ff has bug -->
+  <ul>
+    <li>001</li>
+    <li>002</li>
+    <li>003</li>
+    <li>004</li>
+    <li>005</li>
+    <li>006</li>
+    <li>007</li>
+    <li>008</li>
+    <li>009</li>
+    <li>010</li>
+  </ul>
+  <script src="./lib/es5/draggable.bundle.js"></script>
+  <!-- <script src="./lib/es5/draggable.bundle.legacy.js"></script> -->
+  <script>
+    new Draggable.Draggable(document.querySelector('ul'), {
+      draggable: "li",
+      mirror: {
+        constrainDimensions: true,
+      },
+      plugins: [Draggable.Plugins.ResizeMirror],
+    });
+  </script>
+</body>
+</html>
