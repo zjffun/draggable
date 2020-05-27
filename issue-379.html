@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      user-select: none;
+    }
+
+    .item {
+      width: 50px;
+      height: 50px;
+      background: aqua;
+    }
+
+    .sort__item {
+      width: 100px;
+      height: 100px;
+      border: 1px solid lime;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="dropzone">
+      <div class="drag-item item">drag me</div>
+    </div>
+    <div class="sort">
+      <div class="sort__item">1</div>
+      <div class="sort__item dropzone">2 drop zone</div>
+      <div class="sort__item">3</div>
+    </div>
+  </div>
+  <script src="./lib/draggable.bundle.js"></script>
+  <script>
+    const droppable = new Draggable.Droppable(document.querySelectorAll(".container"), {
+      draggable: '.drag-item',
+      dropzone: '.dropzone'
+    });
+
+    const sortable = new Draggable.Sortable(document.querySelectorAll('.sort'), {
+      draggable: '.sort__item'
+    });
+
+    droppable.on("drag:stop", function (e) {
+      const source = e.source;
+      const parent = source.parentElement;
+      if (parent.classList.contains("sort__item")) {
+        e.originalSource.classList.remove("drag-item")
+        parent.classList.remove("dropzone");
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="sortable-container">
+    <div class="draggable-item">
+      <input type="text" class="order-field" />aaa
+    </div>
+    <div class="draggable-item">
+      <input type="text" class="order-field" />bbb
+    </div>
+    <div class="draggable-item">
+      <input type="text" class="order-field" />ccc
+    </div>
+  </div>
+  <script src="./lib/draggable.bundle.js"></script>
+  <script>
+    var sortable = new Draggable.Sortable(document.querySelector(".sortable-container"), {
+      draggable: '.draggable-item',
+    })
+
+    sortable.on('mirror:created', (e) => {
+      // console.log(e);
+    });
+
+    // JS (after dragging 1st element under 2nd element)
+    sortable.on('sortable:stop', (e) => {
+      requestAnimationFrame(() => {
+        sortable.getDraggableElementsForContainer(e.newContainer).forEach((draggableElement, index) => {
+          let orderField = draggableElement.getElementsByClassName('order-field')[0];
+          orderField.value = index + 1;
+        });
+      });
+    });
+
+
+  </script>
+</body>
+
+</html>

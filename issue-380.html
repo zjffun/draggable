@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      user-select: none;
+    }
+
+    .item {
+      width: 50px;
+      height: 50px;
+      background: aqua;
+    }
+
+    .item-box {
+      width: 50px;
+      height: 50px;
+      overflow: hidden;
+    }
+
+    .box {
+      width: 100px;
+      height: 100px;
+    }
+
+    .dropzone {
+      border: 1px solid lime;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="item-box dropzone">
+      <div class="item">drag me</div>
+    </div>
+    <div class="box dropzone">drop zone</div>
+    <div class="box dropzone">drop zone</div>
+    <div class="box dropzone">drop zone</div>
+  </div>
+  <script src="./lib/draggable.bundle.js"></script>
+  <script>
+    var droppable = new Draggable.Droppable(document.querySelectorAll(".container"), {
+      draggable: '.item',
+      dropzone: '.dropzone'
+    });
+    var itemBox = document.querySelector(".item-box")
+    var item = itemBox.querySelector(".item").cloneNode(true);
+    droppable.on('drag:stop', function () {
+      // have no drag:eng https://github.com/Shopify/draggable/issues/387
+      requestAnimationFrame(() => {
+        itemBox.classList.remove("draggable-dropzone--occupied");
+        if (!itemBox.querySelector(".item")) {
+          itemBox.appendChild(item.cloneNode(true));
+        }
+      })
+    });
+  </script>
+</body>
+
+</html>
