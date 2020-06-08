@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      height: 576px;
+      overflow-y: auto;
+    }
+
+    .pannels {
+      display: flex;
+      align-items: stretch;
+    }
+
+    .pannel__left {
+      flex: 0 0 202px;
+    }
+
+    .pannel__center {
+      flex: 1 1 auto;
+    }
+
+    .wrapper {
+      min-height: 576px;
+      height: 100%;
+      position: relative;
+      border: 2px solid #044996;
+    }
+
+    .wrapper__bbottom {
+      width: 100%;
+    }
+
+    .wrapper__bbottom::before {
+      border-left: 2px solid #228ffe;
+      left: -2px;
+    }
+
+    .wrapper__bbottom::after {
+      border-right: 2px solid #228ffe;
+      right: -2px;
+    }
+
+    .wrapper__bbottom::before,
+    .wrapper__bbottom::after {
+      border-bottom: 2px solid #228ffe;
+      bottom: -2px;
+    }
+
+    .wrapper__bbottom::before,
+    .wrapper__bbottom::after {
+      pointer-events: none;
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      content: "";
+    }
+  </style>
+</head>
+
+<body>
+  <h1>scroll to bottom and drag green box</h1>
+  <main class="container">
+    <article class="pannels">
+      <section class="pannel__left">
+        <div class="wrapper" tabindex="0">
+          <div class="wrapper__bbottom"></div>
+        </div>
+      </section>
+      <section class="pannel__center">
+        <div>
+          <div class="preview" style="height: 300px;width: 300px;background: pink;"></div>
+          <div class="preview" style="height: 300px; width: 300px; background: yellow;"></div>
+          <div class="preview" style="height: 300px; width: 300px; background: green;">drag me</div>
+        </div>
+      </section>
+    </article>
+  </main>
+  <script src="./lib/draggable.bundle.js"></script>
+  <script>const article = document.querySelector("article");
+    const DraggableClass = Draggable.Draggable;
+    const draggable = new DraggableClass([article], {
+      draggable: ".preview"
+    });
+    document.querySelector(".container").scrollTo(0, 1000);
+  </script>
+</body>
+
+</html>
