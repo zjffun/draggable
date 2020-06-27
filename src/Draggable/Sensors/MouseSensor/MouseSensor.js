@@ -67,7 +67,6 @@ export default class MouseSensor extends Sensor {
     this.startEvent = event;
 
     document.addEventListener('mouseup', this[onMouseUp]);
-    document.addEventListener('mousemove', this[onDistanceChange]);
 
     const container = closest(event.target, this.containers);
 
@@ -107,10 +106,13 @@ export default class MouseSensor extends Sensor {
 
     this.dragging = !dragStartEvent.canceled();
 
-    if (this.dragging) {
-      document.addEventListener('contextmenu', this[onContextMenuWhileDragging], true);
-      document.addEventListener('mousemove', this[onMouseMove]);
+    if (!this.dragging) {
+      return;
     }
+
+    document.addEventListener('mousemove', this[onDistanceChange]);
+    document.addEventListener('contextmenu', this[onContextMenuWhileDragging], true);
+    document.addEventListener('mousemove', this[onMouseMove]);
   }
 
   /**

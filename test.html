@@ -1,0 +1,43 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.12.0/css/tachyons.min.css"/>
+    <style>
+      .draggable-mirror {
+          list-style-type: none;
+          border-style: none;
+          border-width: 0;
+      }
+      li {
+          -webkit-user-select: none !important;
+          -moz-user-select: none !important;
+          -ms-user-select: none !important;
+          user-select: none !important;
+      }
+      .draggable-source--is-dragging {
+          opacity: 0.2;
+          -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=20)";
+          filter: alpha(opacity=20);
+      }
+
+      div,ul,li:focus {
+          outline: none;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="list w-50" id="list1">
+      <li><div class="red"><span class="handle-item">+</span>1</div></li>
+      <li><div class="green">2</div></li>
+      <li><div class="yellow">3</div></li>
+      <li><div class="blue">4</div></li>
+    </ul>
+    <script src="./lib/sortable.js"></script>
+    <script>
+      const list1 = document.getElementById('list1');
+      const sortable = new Sortable.default([list1], {
+          draggable: 'li',
+          handle: '.handle-item',
+          mirror: { constrainDimensions: true }
+      });
+    </script>
+</html>
