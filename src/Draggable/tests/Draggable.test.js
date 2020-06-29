@@ -298,7 +298,7 @@ describe('Draggable', () => {
       triggerEvent(draggableElement, 'mousedown', {button: 0});
 
       // Wait for delay
-      waitForDragDelay(100);
+      waitForDragDelay();
 
       const containerChildren = newInstance.getDraggableElementsForContainer(draggableElement.parentNode);
 
@@ -321,7 +321,7 @@ describe('Draggable', () => {
       const dynamicContainer = document.querySelector('.DynamicContainer');
 
       clickMouse(draggableElement);
-      waitForDragDelay(100);
+      waitForDragDelay();
       moveMouse(dynamicContainer);
 
       expect(dragOverContainerHandler).not.toHaveBeenCalled();
@@ -333,7 +333,7 @@ describe('Draggable', () => {
       expect(newInstance.containers).toEqual([...containers, dynamicContainer]);
 
       clickMouse(draggableElement);
-      waitForDragDelay(100);
+      waitForDragDelay();
       moveMouse(dynamicContainer);
       expect(dragOverContainerHandler).toHaveBeenCalled();
 
@@ -355,7 +355,7 @@ describe('Draggable', () => {
       const dynamicContainer = document.querySelector('.DynamicContainer');
 
       clickMouse(draggableElement);
-      waitForDragDelay(100);
+      waitForDragDelay();
       moveMouse(dynamicContainer);
 
       expect(dragOverContainerHandler).toHaveBeenCalled();
@@ -370,7 +370,7 @@ describe('Draggable', () => {
       newInstance.on('drag:over:container', dragOverContainerHandler);
 
       clickMouse(draggableElement);
-      waitForDragDelay(100);
+      waitForDragDelay();
       moveMouse(dynamicContainer);
 
       expect(dragOverContainerHandler).not.toHaveBeenCalled();
@@ -455,7 +455,7 @@ describe('Draggable', () => {
 
     triggerEvent(draggableElement, 'mousedown', {button: 0});
     // Wait for delay
-    waitForDragDelay(100);
+    waitForDragDelay();
 
     const call = callback.mock.calls[0][0];
 
@@ -479,7 +479,7 @@ describe('Draggable', () => {
     triggerEvent(draggableElement, 'mousedown', {button: 0});
 
     // Wait for delay
-    waitForDragDelay(100);
+    waitForDragDelay();
 
     triggerEvent(draggableElement, 'dragstart', {button: 0});
 
@@ -512,7 +512,7 @@ describe('Draggable', () => {
     triggerEvent(draggableElement, 'mousedown', {button: 0});
 
     // Wait for delay
-    waitForDragDelay(100);
+    waitForDragDelay();
 
     triggerEvent(draggableElement, 'dragstart', {button: 0});
 
@@ -531,7 +531,7 @@ describe('Draggable', () => {
     triggerEvent(draggableElement, 'mousedown', {button: 0});
 
     // Wait for delay
-    waitForDragDelay(100);
+    waitForDragDelay();
 
     const callback = jest.fn();
     newInstance.on('drag:move', callback);
@@ -565,7 +565,7 @@ describe('Draggable', () => {
     triggerEvent(draggableElement, 'mousedown', {button: 0});
 
     // Wait for delay
-    waitForDragDelay(100);
+    waitForDragDelay();
 
     const callback = jest.fn();
     newInstance.on('drag:stop', callback);
@@ -589,7 +589,7 @@ describe('Draggable', () => {
     triggerEvent(draggableElement, 'mousedown', {button: 0});
 
     // Wait for delay
-    waitForDragDelay(100);
+    waitForDragDelay();
 
     expect(newInstance.source.classList).toContain('draggable-source--is-dragging');
 
@@ -606,7 +606,7 @@ describe('Draggable', () => {
     triggerEvent(draggableElement, 'mousedown', {button: 0});
 
     // Wait for delay
-    waitForDragDelay(100);
+    waitForDragDelay();
 
     const source = newInstance.source;
 
@@ -631,7 +631,7 @@ describe('Draggable', () => {
     triggerEvent(draggableElement, 'mousedown', {button: 0});
 
     // Wait for delay
-    waitForDragDelay(100);
+    waitForDragDelay();
 
     const source = newInstance.source;
 
@@ -651,7 +651,7 @@ describe('Draggable', () => {
     triggerEvent(draggableElement, 'mousedown', {button: 0});
 
     // Wait for delay
-    waitForDragDelay(100);
+    waitForDragDelay();
 
     expect(document.body.classList).toContain('draggable--is-dragging');
 
@@ -669,7 +669,7 @@ describe('Draggable', () => {
     triggerEvent(draggableElement, 'mousedown', {button: 0});
 
     // Wait for delay
-    waitForDragDelay(100);
+    waitForDragDelay();
     expect(document.body.classList).toContain('draggable--is-dragging');
 
     triggerEvent(document.body, 'mouseup', {button: 0});
@@ -691,7 +691,7 @@ describe('Draggable', () => {
     triggerEvent(draggableElement, 'mousedown', {button: 0});
 
     // Wait for delay
-    waitForDragDelay(100);
+    waitForDragDelay();
 
     expect(document.body.classList).not.toContain('draggable--is-dragging');
 
@@ -709,7 +709,7 @@ describe('Draggable', () => {
     triggerEvent(draggableElement, 'mousedown', {button: 0});
 
     // Wait for delay
-    waitForDragDelay(100);
+    waitForDragDelay();
 
     triggerEvent(draggableElement, 'mouseup', {button: 0});
 
@@ -727,7 +727,7 @@ describe('Draggable', () => {
     triggerEvent(draggableElement, 'mousedown', {button: 0});
 
     // Wait for delay
-    waitForDragDelay(100);
+    waitForDragDelay();
 
     triggerEvent(document.body, 'mouseup', {button: 0});
 
@@ -750,7 +750,7 @@ describe('Draggable', () => {
     triggerEvent(draggableElement, 'mousedown', {button: 0});
 
     // Wait for delay
-    waitForDragDelay(100);
+    waitForDragDelay();
 
     expect(containers[0].classList).toContain('draggable-container--is-dragging');
 
@@ -768,7 +768,7 @@ describe('Draggable', () => {
     triggerEvent(draggableElement, 'mousedown', {button: 0});
 
     // Wait for delay
-    waitForDragDelay(100);
+    waitForDragDelay();
 
     expect(containers[0].classList).toContain('draggable-container--is-dragging');
 
@@ -790,7 +790,7 @@ describe('Draggable', () => {
     triggerEvent(draggableElement, 'mousedown', {button: 0});
 
     // Wait for delay
-    waitForDragDelay(100);
+    waitForDragDelay();
 
     expect(containers[0].classList).not.toContain('draggable-container--is-dragging');
 
@@ -807,7 +807,7 @@ describe('Draggable', () => {
     triggerEvent(draggableElement, 'mousedown', {button: 0});
 
     // Wait for delay
-    waitForDragDelay(100);
+    waitForDragDelay();
 
     expect(draggableElement.classList.contains(newInstance.getClassNameFor('source:original'))).toBeTruthy();
 
@@ -835,7 +835,7 @@ describe('Draggable', () => {
     triggerEvent(draggableElement, 'mousedown', {button: 0});
 
     // Wait for delay
-    waitForDragDelay(100);
+    waitForDragDelay();
 
     expect(newInstance.isDragging()).toBe(true);
 
@@ -843,13 +843,13 @@ describe('Draggable', () => {
     triggerEvent(draggableElement.nextElementSibling, 'mousemove', {button: 0});
 
     // Wait for delay
-    waitForDragDelay(100);
+    waitForDragDelay();
 
     document.elementFromPoint = () => document.body;
     triggerEvent(document.body, 'mousemove', {button: 0});
 
     // Wait for delay
-    waitForDragDelay(100);
+    waitForDragDelay();
 
     triggerEvent(document.body, 'mouseup', {button: 0});
   });
