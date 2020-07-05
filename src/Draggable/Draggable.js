@@ -52,10 +52,6 @@ export const defaultOptions = {
   placedTimeout: 800,
   plugins: [],
   sensors: [],
-  exclude: {
-    plugins: [],
-    sensors: [],
-  },
 };
 
 /**
@@ -117,6 +113,10 @@ export default class Draggable {
         ...defaultAnnouncements,
         ...(options.announcements || {}),
       },
+      exclude: {
+        plugins: (options.exclude && options.exclude.plugins) || [],
+        sensors: (options.exclude && options.exclude.sensors) || [],
+      },
     };
 
     /**
@@ -158,10 +158,10 @@ export default class Draggable {
     document.addEventListener('drag:pressure', this[onDragPressure], true);
 
     const defaultPlugins = Object.values(Draggable.Plugins).filter(
-      (Plugin) => !(this.options.exclude.plugins || []).includes(Plugin),
+      (Plugin) => !this.options.exclude.plugins.includes(Plugin),
     );
     const defaultSensors = Object.values(Draggable.Sensors).filter(
-      (sensor) => !(this.options.exclude.sensors || []).includes(sensor),
+      (sensor) => !this.options.exclude.sensors.includes(sensor),
     );
 
     this.addPlugin(...[...defaultPlugins, ...this.options.plugins]);
