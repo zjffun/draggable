@@ -554,6 +554,7 @@ function positionMirror({raf = false, initial = false} = {}) {
 function withPromise(callback, {raf = false} = {}) {
   return new Promise((resolve, reject) => {
     if (raf) {
+      console.log('Call withPromise with {raf: true}');
       requestAnimationFrame(() => {
         callback(resolve, reject);
       });
