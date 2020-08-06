@@ -1,24 +1,15 @@
 {
-  "name": "@shopify/draggable",
-  "version": "1.0.0-beta.11",
+  "name": "@zjffun/shopify-draggable",
+  "version": "1.0.0-beta.12",
   "private": false,
   "license": "MIT",
-  "description": "The JavaScript Drag & Drop library your grandparents warned you about.",
-  "author": "Shopify <dev@shopify.com>",
-  "homepage": "https://github.com/Shopify/draggable#readme",
-  "repository": "https://github.com/Shopify/draggable",
-  "contributors": [
-    {
-      "name": "Max Hoffmann",
-      "email": "max.hoffmann@shopify.com"
-    },
-    {
-      "name": "Curtis Dulmage",
-      "email": "curtis.dulmage@shopify.com"
-    }
-  ],
+  "description": "[Own version] The JavaScript Drag & Drop library your grandparents warned you about.",
+  "author": "JuFeng Zhang",
+  "homepage": "https://github.com/zjffun/draggable/tree/npm/support-clone-canvas-to-mirror#readme",
+  "repository": "https://github.com/zjffun/draggable/tree/npm/support-clone-canvas-to-mirror",
+  "contributors": [],
   "bugs": {
-    "url": "https://github.com/Shopify/draggable/issues"
+    "url": "https://github.com/zjffun/draggable/issues"
   },
   "keywords": [
     "shopify",

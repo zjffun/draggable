@@ -3,6 +3,12 @@
 [![codecov](https://codecov.io/gh/Shopify/draggable/branch/master/graph/badge.svg)](https://codecov.io/gh/Shopify/draggable)
 [![Greenkeeper badge](https://badges.greenkeeper.io/Shopify/draggable.svg)](https://greenkeeper.io/)
 
+# Own version
+
+Fork from [Shopify/draggable@2619c81](https://github.com/Shopify/draggable/commit/2619c815d5e273c11806cbab697d878327dbd321)
+
+- Support clone canvas. [support clone canvas](https://github.com/Shopify/draggable/pull/386)
+
 <a href="https://shopify.github.io/draggable" title="Visit Draggable website">
   <img src="https://user-images.githubusercontent.com/643944/35602291-99e2c56e-0605-11e8-847f-95f1f6be1610.jpg" alt="">
 </a>
