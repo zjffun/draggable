@@ -172,7 +172,7 @@ export default class Sortable extends Draggable {
       return;
     }
 
-    const children = this.getSortableElementsForContainer(overContainer);
+    const children = this.getDraggableElementsForContainer(overContainer);
     const moves = move({source, over, overContainer, children});
 
     if (!moves) {
@@ -268,7 +268,7 @@ function index(element) {
 function move({source, over, overContainer, children}) {
   const emptyOverContainer = !children.length;
   const differentContainer = source.parentNode !== overContainer;
-  const sameContainer = over && !differentContainer;
+  const sameContainer = over && source.parentNode === over.parentNode;
 
   if (emptyOverContainer) {
     return moveInsideEmptyContainer(source, overContainer);
