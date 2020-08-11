@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul class="container">
+    <li>
+      <h1><span>drag</span>1</h1>
+      <ul class="wrapper">
+        <li><span>drag</span>11</li>
+        <li><span>drag</span>12</li>
+        <li><span>drag</span>13</li>
+        <li><span>drag</span>14</li>
+        <li><span>drag</span>15</li>
+        <li><span>drag</span>16</li>
+        <li><span>drag</span>17</li>
+      </ul>
+    </li>
+    <li>
+      <h1><span>drag</span>2</h1>
+      <ul class="wrapper">
+        <li><span>drag</span>21</li>
+        <li><span>drag</span>22</li>
+        <li><span>drag</span>23</li>
+        <li><span>drag</span>24</li>
+        <li><span>drag</span>25</li>
+        <li><span>drag</span>26</li>
+        <li><span>drag</span>27</li>
+      </ul>
+    </li>
+    <li>
+      <h1><span>drag</span>3</h1>
+      <ul class="wrapper">
+        <li><span>drag</span>31</li>
+        <li><span>drag</span>32</li>
+        <li><span>drag</span>33</li>
+        <li><span>drag</span>34</li>
+        <li><span>drag</span>35</li>
+        <li><span>drag</span>36</li>
+        <li><span>drag</span>37</li>
+      </ul>
+    </li>
+  </ul>
+  <script src="./examples/packages/@shopify/draggable/index.js"></script>
+  <script>
+    const SortableClass = Draggable.Sortable;
+    const scontianer = new SortableClass(document.querySelectorAll('.container, .wrapper'), {
+      draggable: 'li',
+      handle: "span",
+      mirror: {
+        constrainDimensions: true,
+      },
+      // plugins: [Draggable.Plugins.SortAnimation]
+    })
+    // const swrapper = new SortableClass(document.querySelectorAll('.wrapper'), {
+    //   draggable: 'li',
+    //   mirror: {
+    //     constrainDimensions: true,
+    //   },
+    //   // plugins: [Draggable.Plugins.SortAnimation]
+    // })
+
+  </script>
+</body>
+
+</html>
