@@ -49,7 +49,7 @@
   <script src="./examples/packages/@shopify/draggable/index.js"></script>
   <script>
     const SortableClass = Draggable.Sortable;
-    const scontianer = new SortableClass(document.querySelectorAll('.container, .wrapper'), {
+    const sortable = new SortableClass(document.querySelectorAll('.container, .wrapper'), {
       draggable: 'li',
       handle: "span",
       mirror: {
@@ -64,6 +64,10 @@
     //   },
     //   // plugins: [Draggable.Plugins.SortAnimation]
     // })
+
+    sortable.on("sortable:stop", (e) => {
+      console.log("oldIndex", e.data.oldIndex, "newIndex", e.data.newIndex);
+    })
 
   </script>
 </body>
