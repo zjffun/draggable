@@ -146,8 +146,12 @@ export default class MouseSensor extends Sensor {
     const timeElapsed = Date.now() - this.onMouseDownAt;
     const distanceTravelled = euclideanDistance(startEvent.pageX, startEvent.pageY, pageX, pageY) || 0;
 
-    if (timeElapsed >= delay && distanceTravelled >= distance) {
-      window.clearTimeout(this.mouseDownTimeout);
+    clearTimeout(this.mouseDownTimeout);
+
+    if (timeElapsed < delay) {
+      // moved during delay
+      document.removeEventListener('mousemove', this[onDistanceChange]);
+    } else if (distanceTravelled >= distance) {
       document.removeEventListener('mousemove', this[onDistanceChange]);
       this[startDrag]();
     }

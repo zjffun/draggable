@@ -174,8 +174,13 @@ export default class TouchSensor extends Sensor {
     const distanceTravelled = euclideanDistance(start.pageX, start.pageY, current.pageX, current.pageY);
 
     Object.assign(this, current);
-    if (timeElapsed >= delay && distanceTravelled >= distance) {
-      window.clearTimeout(this.tapTimeout);
+
+    clearTimeout(this.tapTimeout);
+
+    if (timeElapsed < delay) {
+      // moved during delay
+      document.removeEventListener('touchmove', this[onDistanceChange]);
+    } else if (distanceTravelled >= distance) {
       document.removeEventListener('touchmove', this[onDistanceChange]);
       this[startDrag]();
     }
