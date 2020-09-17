@@ -9,6 +9,8 @@ const onMouseUp = Symbol('onMouseUp');
 const startDrag = Symbol('startDrag');
 const onDistanceChange = Symbol('onDistanceChange');
 
+const defaultDelay = 0;
+
 /**
  * This sensor picks up native browser mouse events and dictates drag operations
  * @class MouseSensor
@@ -45,6 +47,12 @@ export default class MouseSensor extends Sensor {
      * @private
      */
     this.pageY = null;
+
+    this.delay = this.options.delay;
+
+    if (this.delay === 'auto') {
+      this.delay = defaultDelay;
+    }
 
     this[onContextMenuWhileDragging] = this[onContextMenuWhileDragging].bind(this);
     this[onMouseDown] = this[onMouseDown].bind(this);
@@ -83,7 +91,7 @@ export default class MouseSensor extends Sensor {
       return;
     }
 
-    const {delay = 0} = this.options;
+    const {delay} = this;
     const {pageX, pageY} = event;
 
     Object.assign(this, {pageX, pageY});
@@ -134,8 +142,8 @@ export default class MouseSensor extends Sensor {
    */
   [onDistanceChange](event) {
     const {pageX, pageY} = event;
-    const {delay, distance} = this.options;
-    const {startEvent} = this;
+    const {distance} = this.options;
+    const {startEvent, delay} = this;
 
     Object.assign(this, {pageX, pageY});
 

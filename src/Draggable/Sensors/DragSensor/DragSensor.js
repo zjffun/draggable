@@ -10,6 +10,8 @@ const onDragEnd = Symbol('onDragEnd');
 const onDrop = Symbol('onDrop');
 const reset = Symbol('reset');
 
+const defaultDelay = 0;
+
 /**
  * This sensor picks up native browser drag events and dictates drag operations
  * @class DragSensor
@@ -46,6 +48,12 @@ export default class DragSensor extends Sensor {
      * @type {HTMLElement}
      */
     this.nativeDraggableElement = null;
+
+    this.delay = this.options.delay;
+
+    if (this.delay === 'auto') {
+      this.delay = defaultDelay;
+    }
 
     this[onMouseDown] = this[onMouseDown].bind(this);
     this[onMouseUp] = this[onMouseUp].bind(this);
@@ -211,7 +219,7 @@ export default class DragSensor extends Sensor {
     this.mouseDownTimeout = setTimeout(() => {
       target.draggable = true;
       this.draggableElement = target;
-    }, this.options.delay);
+    }, this.delay);
   }
 
   /**

@@ -76,9 +76,9 @@ look for an element with `.draggable-source` class. Default: `.draggable-source`
 Specify a css selector for a handle element if you don't want to allow drag action
 on the entire element. Default: `null`
 
-**`delay {Number}`**  
+**`delay {Number|'auto'}`**  
 If you want to delay a drag start you can specify delay in milliseconds. This can be useful
-for draggable elements within scrollable containers. Default: `100`
+for draggable elements within scrollable containers. The default `auto` will set 0 in MouseSensor and DragSensor and set 100 in TouchSensor for allow touch scrolling. Default: `auto`
 
 **`distance {Number}`**  
 The distance you want the pointer to have moved before drag starts. This can be useful

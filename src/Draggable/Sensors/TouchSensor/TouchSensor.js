@@ -8,6 +8,8 @@ const onTouchMove = Symbol('onTouchMove');
 const startDrag = Symbol('startDrag');
 const onDistanceChange = Symbol('onDistanceChange');
 
+const defaultDelay = 100;
+
 /**
  * Prevents scrolling when set to true
  * @var {Boolean} preventScrolling
@@ -79,6 +81,12 @@ export default class TouchSensor extends Sensor {
      */
     this.pageY = null;
 
+    this.delay = this.options.delay;
+
+    if (this.delay === 'auto') {
+      this.delay = defaultDelay;
+    }
+
     this[onTouchStart] = this[onTouchStart].bind(this);
     this[onTouchEnd] = this[onTouchEnd].bind(this);
     this[onTouchMove] = this[onTouchMove].bind(this);
@@ -111,7 +119,8 @@ export default class TouchSensor extends Sensor {
     if (!container) {
       return;
     }
-    const {distance = 0, delay = 0} = this.options;
+    const {distance = 0} = this.options;
+    const {delay} = this;
     const {pageX, pageY} = touchCoords(event);
 
     Object.assign(this, {pageX, pageY});
@@ -166,8 +175,8 @@ export default class TouchSensor extends Sensor {
    * @param {Event} event - Touch move event
    */
   [onDistanceChange](event) {
-    const {delay, distance} = this.options;
-    const {startEvent} = this;
+    const {distance} = this.options;
+    const {startEvent, delay} = this;
     const start = touchCoords(startEvent);
     const current = touchCoords(event);
     const timeElapsed = Date.now() - this.onTouchStartAt;
