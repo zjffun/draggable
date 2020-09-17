@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    ul {
+      height: 300px;
+      overflow: auto;
+    }
+
+    li {
+      border: 1px solid greenyellow;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li>1testtest1</li>
+    <li>2testtest2</li>
+    <li>3testtest3</li>
+    <li>4testtest4</li>
+    <li>5testtest5</li>
+    <li>6testtest6</li>
+    <li>7testtest7</li>
+    <li>8testtest8</li>
+    <li>9testtest9</li>
+    <li>10testtest10</li>
+    <li>11testtest11</li>
+    <li>12testtest12</li>
+    <li>13testtest13</li>
+    <li>14testtest14</li>
+    <li>15testtest15</li>
+    <li>16testtest16</li>
+    <li>17testtest17</li>
+    <li>18testtest18</li>
+    <li>19testtest19</li>
+    <li>20testtest20</li>
+    <li>21testtest21</li>
+    <li>22testtest22</li>
+    <li>23testtest23</li>
+    <li>24testtest24</li>
+    <li>25testtest25</li>
+    <li>26testtest26</li>
+    <li>27testtest27</li>
+    <li>28testtest28</li>
+    <li>29testtest29</li>
+    <li>30testtest30</li>
+    <li>31testtest31</li>
+    <li>32testtest32</li>
+    <li>33testtest33</li>
+    <li>34testtest34</li>
+    <li>35testtest35</li>
+    <li>36testtest36</li>
+    <li>37testtest37</li>
+    <li>38testtest38</li>
+    <li>39testtest39</li>
+    <li>40testtest40</li>
+    <li>41testtest41</li>
+    <li>42testtest42</li>
+    <li>43testtest43</li>
+    <li>44testtest44</li>
+    <li>45testtest45</li>
+    <li>46testtest46</li>
+    <li>47testtest47</li>
+    <li>48testtest48</li>
+    <li>49testtest49</li>
+    <li>50testtest50</li>
+    <li>51testtest51</li>
+    <li>52testtest52</li>
+    <li>53testtest53</li>
+    <li>54testtest54</li>
+    <li>55testtest55</li>
+    <li>56testtest56</li>
+    <li>57testtest57</li>
+    <li>58testtest58</li>
+    <li>59testtest59</li>
+    <li>60testtest60</li>
+    <li>61testtest61</li>
+    <li>62testtest62</li>
+    <li>63testtest63</li>
+    <li>64testtest64</li>
+    <li>65testtest65</li>
+    <li>66testtest66</li>
+    <li>67testtest67</li>
+    <li>68testtest68</li>
+    <li>69testtest69</li>
+    <li>70testtest70</li>
+    <li>71testtest71</li>
+    <li>72testtest72</li>
+    <li>73testtest73</li>
+    <li>74testtest74</li>
+    <li>75testtest75</li>
+    <li>76testtest76</li>
+    <li>77testtest77</li>
+    <li>78testtest78</li>
+    <li>79testtest79</li>
+    <li>80testtest80</li>
+    <li>81testtest81</li>
+    <li>82testtest82</li>
+    <li>83testtest83</li>
+    <li>84testtest84</li>
+    <li>85testtest85</li>
+    <li>86testtest86</li>
+    <li>87testtest87</li>
+    <li>88testtest88</li>
+    <li>89testtest89</li>
+    <li>90testtest90</li>
+    <li>91testtest91</li>
+    <li>92testtest92</li>
+    <li>93testtest93</li>
+    <li>94testtest94</li>
+    <li>95testtest95</li>
+    <li>96testtest96</li>
+    <li>97testtest97</li>
+    <li>98testtest98</li>
+    <li>99testtest99</li>
+    <li>100testtest100</li>
+  </ul>
+  <script src="./examples/packages/@shopify/draggable/index.js"></script>
+  <script>
+    console.log(Draggable);
+    const draggable = new Draggable.Sortable(document.querySelectorAll('ul'), {
+      draggable: 'li',
+      // delay: 1000,
+      exclude: {
+        plugins: [Draggable.Plugins.Focusable],
+        sensors: [Draggable.Sensors.TouchSensor, Draggable.Sensors.MouseSensor],
+      }
+    });
+
+    draggable.addSensor(Draggable.Sensors.DragSensor)
+
+  </script>
+</body>
+
+</html>
