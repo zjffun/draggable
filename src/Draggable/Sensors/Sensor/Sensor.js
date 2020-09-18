@@ -52,6 +52,11 @@ export default class Sensor {
      */
     this.startEvent = null;
 
+    /**
+     * The delay of each sensor
+     * @property delay
+     * @type {Object}
+     */
     this.delay = calcDelay(options.delay);
   }
 
@@ -105,8 +110,13 @@ export default class Sensor {
   }
 }
 
+/**
+ * Calculate the delay of each sensor through the delay in the options
+ * @param {undefined|Number|Object} optionsDelay - the delay in the options
+ * @return {Object}
+ */
 function calcDelay(optionsDelay) {
-  const result = {};
+  const delay = {};
 
   if (optionsDelay === undefined) {
     return {...defaultDealy};
@@ -115,21 +125,21 @@ function calcDelay(optionsDelay) {
   if (typeof optionsDelay === 'number') {
     for (const key in defaultDealy) {
       if (defaultDealy.hasOwnProperty(key)) {
-        result[key] = optionsDelay;
+        delay[key] = optionsDelay;
       }
     }
-    return result;
+    return delay;
   }
 
   for (const key in defaultDealy) {
     if (defaultDealy.hasOwnProperty(key)) {
       if (optionsDelay[key] === undefined) {
-        result[key] = defaultDealy[key];
+        delay[key] = defaultDealy[key];
       } else {
-        result[key] = optionsDelay[key];
+        delay[key] = optionsDelay[key];
       }
     }
   }
 
-  return result;
+  return delay;
 }
