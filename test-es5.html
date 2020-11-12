@@ -1,0 +1,11 @@
+<ul>
+  <li>test1</li>
+  <li>test2</li>
+</ul>
+<script src="https://unpkg.com/core-js-bundle@3.7.0/index.js"></script>
+<script src="https://unpkg.com/@shopify/draggable@1.0.0-beta.12/lib/es5/draggable.bundle.js"></script>
+<script>
+  new Draggable.Sortable(document.querySelectorAll("ul"), {
+    draggable: "li"
+  });
+</script>
