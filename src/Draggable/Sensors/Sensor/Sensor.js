@@ -45,6 +45,8 @@ export default class Sensor {
      */
     this.currentContainer = null;
 
+    this.originalSource = null;
+
     /**
      * The event of the initial sensor down
      * @property startEvent
